@@ -23,8 +23,8 @@ const pronomes = [
 ];
 
 function nomeRandom(lista) {
-  const nome = Math.floor(Math.random() * pronomes.length);
-  return nome;
+  const posicaoNome = Math.floor(Math.random() * pronomes.length);
+  return posicaoNome;
 }
 
 client.on("message", function (message) {
@@ -32,7 +32,9 @@ client.on("message", function (message) {
 
   if (message.content.includes("!zeze")) {
     let nome = nomeRandom(pronomes);
-    message.channel.send(`Fala, meu ${pronomes[nome]}, o que vai querer hoje?`);
+    message.channel.send(
+      `Fala, meu ${pronomes[posicaoNome]}, o que vai querer hoje?`
+    );
   }
   if (message.content.includes("!sempre")) {
     message.reply("Tá na mesa", {
@@ -64,14 +66,6 @@ client.on("message", function (message) {
   }
   if (message.content.includes("paulin")) {
     message.reply("bacana");
-  }
-  if (message.content.includes("!devendo")) {
-    message.channel.send("Cezinha dorminhoco: 170 reais e 2 cadeira");
-    message.channel.send("Jorge da esquina: 3 glacial e uma galinha");
-    message.channel.send("Flamel: 2 wd 40 e R$ 35 de ficha de sinuca ");
-    message.channel.send(
-      "Lightzera: 1 motor de geladeira e o conserto do guarda roupa"
-    );
   }
 });
 
